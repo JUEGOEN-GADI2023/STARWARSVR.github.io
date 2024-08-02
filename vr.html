@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museo de Star Wars</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #feda4a;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            margin: 10px;
+            width: 300px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            border: 2px solid #feda4a;
+            border-radius: 10px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            max-width: 80%;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .download-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #222;
+            border-top: 2px solid #feda4a;
+            text-align: left;
+        }
+
+        .download-section h2 {
+            font-size: 2em;
+            color: #feda4a;
+            margin-bottom: 20px;
+        }
+
+        .download-section p {
+            font-size: 1.2em;
+            line-height: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .download-button {
+            display: inline-block;
+            background-color: #feda4a;
+            color: #000;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .download-button:hover {
+            background-color: #d4b200;
+            transform: scale(1.1);
+        }
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-color: #000;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #222;
+            padding: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #feda4a;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .download-btn, .play-game-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #000;
+            background-color: #feda4a;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .download-btn:hover, .play-game-btn:hover {
+            background-color: #d4b200;
+        }
+
+        footer {
+            background-color: #222;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Museo Star Wars</h1>
+    </header>
+
+    <section class="gallery">
+        <div class="gallery-item" onclick="openModal('img1.jpg', 'Descripción de la imagen 1')">
+            <img src="https://img.freepik.com/fotos-premium/viajero-espacial-futurista-juego-3d-referencia-personaje-aislado-inspirado-star-wars-fortnite_934871-35115.jpg" alt="Imagen 1">
+        </div>
+        <div class="gallery-item" onclick="openModal('img2.jpg', 'Descripción de la imagen 2')">
+            <img src="https://i.redd.it/ug8xb2yafsta1.jpg" alt="Imagen 2">
+        </div>
+        <div class="gallery-item" onclick="openModal('img3.jpg', 'Descripción de la imagen 3')">
+            <img src="https://expmag.com/wp-content/uploads/2021/10/Hologram-full-300dpi.jpg" alt="Imagen 3">
+        </div>
+       
+    </section>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modal-img" src="" alt="Imagen Modal" style="width:100%; border-radius: 10px;">
+            <p id="modal-desc"></p>
+        </div>
+    </div>
+
+    <section class="download-section">
+        <center>
+        <h2>¡Explora el Universo de Star Wars en Realidad Aumentada!</h2>
+    </center>
+        <p>Descarga nuestra aplicación oficial del Museo de Star Wars y vive una experiencia única con tus personajes favoritos. La aplicación utiliza tecnología de realidad Virtual (VR) para traer a la vida a personajes icónicos como R2-D2, Grogu, Yoda, y muchos más.</p>
+        <p>Con la aplicación, podrás:</p>
+        <ul>
+            <li>Interactuar con modelos 3D de los personajes y ver como estan estructurados.</li>
+            <li>Ademas podras ver algunos poster de la saga</li>
+        </ul>
+        <p>No te pierdas esta oportunidad de sumergirte aún más en el mundo de Star Wars. ¡Descárgala ahora!</p>
+    <center>
+        <div class="content">
+            <a href="VR STAR WARS.apk" class="download-btn">Descargar APK</a>
+            <a href="JUEGO.HTML" class="play-game-btn">Jugar Mini-juego</a>
+        </div>
+    </center> 
+    </section>
+
+    <script>
+        function openModal(imgSrc, imgDesc) {
+            document.getElementById("modal-img").src = imgSrc;
+            document.getElementById("modal-desc").textContent = imgDesc;
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
